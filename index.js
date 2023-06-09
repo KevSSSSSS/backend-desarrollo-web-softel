@@ -60,7 +60,7 @@ app.put('/current_values', (req, res) => {
 });
 
 //Metodo Get
-app.get('/doors', (req, res) => {
+app.get('/door', (req, res) => {
     connection.query('SELECT * FROM doors_records', (error, results) => {
         if (error) {
             res.status(500).json({ error });
@@ -71,7 +71,7 @@ app.get('/doors', (req, res) => {
 });
 
 //Metodo Post
-app.post('/doors', (req, res) => {
+app.post('/door', (req, res) => {
     const body = req.body;
     let query = `INSERT INTO doors_records VALUES (default,'${body.value}','${body.date}')`;
     connection.query(query, (error, results) => {
